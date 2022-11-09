@@ -25,7 +25,7 @@ function Posts() {
   
   React.useEffect(() => {
     const fetchdata = async () => {
-      await fetch('http://127.0.0.1:9000/api/')
+      await fetch('http://127.0.0.1:8000/api/')
       .then((res) => res.json() )
       .then((data) => {
         setData(data)

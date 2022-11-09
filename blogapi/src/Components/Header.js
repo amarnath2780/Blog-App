@@ -13,10 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {useNavigate} from 'react-router-dom'
+import {useSignOut} from 'react-auth-kit'
+
 
 
 const pages = ['Home', 'Posts', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Dashboard'];
 
 
 function Header() {
@@ -38,6 +40,7 @@ function Header() {
     setAnchorElUser(null);
   };
 
+  const signOut = useSignOut()
   return (
     <AppBar  position="static">
       <Container maxWidth="lg">
@@ -150,6 +153,7 @@ function Header() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <Button onClick={signOut}>Logout</Button>
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
